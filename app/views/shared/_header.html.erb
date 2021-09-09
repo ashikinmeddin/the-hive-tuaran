@@ -1,0 +1,38 @@
+<section class='navbar'>
+  <button>
+    <%= link_to 'Home', root_path %>
+  </button>
+  <button>
+    <%= link_to 'Menu', menu_path %>
+  </button>
+  <button>
+    <%= link_to 'Order', order_path %>
+  </button>
+  <button>
+    <%= link_to 'Contact', contact_path %>
+  </button>
+  <button>
+    <%= link_to 'Location', location_path %>
+  </button>
+  <% if user_signed_in? %>
+    <button>
+      <%= link_to 'Profile', user_path(current_user) %>
+    </button>
+    <button>
+      <%= link_to 'Setting', edit_user_path(current_user) %>
+    </button>
+    <button>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </button>
+  <% else %>
+    <button>
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    </button>
+    <button>
+      <%= link_to 'Login', new_user_session_path %>
+    </button>
+    <button>
+      <%= link_to 'Host', platform_home_path %>
+    </button>
+  <% end %>
+</section>

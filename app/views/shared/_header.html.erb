@@ -11,9 +11,6 @@
   <button>
     <%= link_to 'Contact', contact_path %>
   </button>
-  <button>
-    <%= link_to 'Location', location_path %>
-  </button>
   <% if user_signed_in? %>
     <button>
       <%= link_to 'Profile', user_path(current_user) %>

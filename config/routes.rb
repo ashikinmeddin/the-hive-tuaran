@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get '/menu', to: 'pages#menu'
   get '/order', to: 'pages#order'
   get '/contact', to: 'pages#contact'
-  get '/location', to: 'pages#location'
-
   resources :users
 
   namespace :platform do

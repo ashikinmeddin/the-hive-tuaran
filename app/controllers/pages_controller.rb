@@ -11,6 +11,4 @@ class PagesController < ApplicationController
   def contact
   end
 
-  def location
-  end
 end

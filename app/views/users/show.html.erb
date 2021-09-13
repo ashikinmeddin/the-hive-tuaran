@@ -1,1 +1,24 @@
-<h1> Hi <%= current_user.email %></h1>
+<section class='user-profile'>
+  <div class='user-avatar'>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, style: 'width: 200px;' %>
+    <% end %>
+  </div>
+  <div class='user-details'>
+    <h1><%= @user.email %></h1>
+  </div>
+
+  <div class="all-available-listing">
+    <h1>You might be interested</h1>
+    <% @listings.each do |listing| %>
+      <% if listing.photos.attached? %>
+        <% listing.photos.each do |photo| %>
+          <%= image_tag photo, style: 'width: 200px;'%>
+        <% end %>
+      <% end %>
+      <p>Title: <%= listing.title %></p>
+      <p>Description: <%= listing.description %></p>
+      <p>Price Per Item: <%= listing.price_per_item %></p>
+    <% end %>
+  </div>
+</section>

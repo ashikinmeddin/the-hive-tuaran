@@ -17,7 +17,7 @@
   // Initialize and add the map
   function initMap() {
     // The location of Uluru
-    const uluru = { lat: 6.1785792, lng: 116.232169 };
+    const thehivetuaran = { lat: 6.1785792, lng: 116.232169 };
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 18,
@@ -35,6 +35,9 @@
 <h3>The Hive Tuaran</h3>
 <!--The div element for the map -->
 <div id="map"></div>
+<br>
+<%= link_to 'Get Direction', "https://maps.google.com/?q=thehivetuaran", target: '_blank' %>
+<br>
 
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 <script

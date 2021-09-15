@@ -19,6 +19,9 @@
       <p>Title: <%= listing.title %></p>
       <p>Description: <%= listing.description %></p>
       <p>Price Per Item: <%= listing.price_per_item %></p>
+      <%= link_to listing_path(listing) do %>
+        <button>Booking</button>
+      <% end %>
     <% end %>
   </div>
 </section>

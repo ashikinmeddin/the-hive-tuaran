@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @listings = Listing.is_available
+    @bookings = @user.bookings
   end
 
   def edit
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:avatar)
     end
 
-    def set_user
-    @user = User.find(params[:id])
-    end
+    #def set_user
+    #@user = User.find(params[:id])
+    #end
 end

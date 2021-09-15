@@ -8,20 +8,13 @@
     <h1><%= @user.email %></h1>
   </div>
 
-  <div class="all-available-listing">
-    <h1>You might be interested</h1>
-    <% @listings.each do |listing| %>
-      <% if listing.photos.attached? %>
-        <% listing.photos.each do |photo| %>
-          <%= image_tag photo, style: 'width: 200px;'%>
-        <% end %>
-      <% end %>
-      <p>Title: <%= listing.title %></p>
-      <p>Description: <%= listing.description %></p>
-      <p>Price Per Item: <%= listing.price_per_item %></p>
-      <%= link_to listing_path(listing) do %>
-        <button>Order</button>
-      <% end %>
-    <% end %>
+  <div class='user-orders'>
+  <h1>Your orders</h1>
+  <% @orders.each do |order| %>
+    <br>
+    <%= link_to "#{order.ref_no}", listing_order_path(order.listing, order) %>
+    <p>status: <%= order.status %></p>
+    <p>Total: <%= order.total %></p>
+  <% end %>
   </div>
 </section>

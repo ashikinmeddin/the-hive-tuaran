@@ -1,1 +1,20 @@
-<h1> This is the order page</h1>
+<button>
+  <%= link_to 'Delivery', "https://www.foodpanda.my/restaurant/bnxj/the-hive-tuaran", target: "_blank"%>
+</button>
+
+<div class="all-available-listing">
+  <h1>Here is the list from our menu</h1>
+  <% @listings.each do |listing| %>
+    <% if listing.photos.attached? %>
+      <% listing.photos.each do |photo| %>
+        <%= image_tag photo, style: 'width: 200px;'%>
+      <% end %>
+    <% end %>
+    <p>Title: <%= listing.title %></p>
+    <p>Description: <%= listing.description %></p>
+    <p>Price Per Item: <%= listing.price_per_item %></p>
+    <%= link_to listing_path(listing) do %>
+      <button>Order</button>
+    <% end %>
+  <% end %>
+</div>

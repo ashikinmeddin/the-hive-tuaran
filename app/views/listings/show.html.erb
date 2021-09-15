@@ -10,9 +10,9 @@
     <p>Price Per Day: <%= @listing.price_per_item %></p>
   </div>
 
-  <div class='booking-form'>
-    <h2>Booking section</h2>
-    <%= form_with(model: [@listing, @booking]) do |f| %>
+  <div class='order-form'>
+    <h2>Order section</h2>
+    <%= form_with(model: [@listing, @order]) do |f| %>
       <%= f.label :no_of_item %>
       <%= f.number_field :quantity, in: 1..20 %>
       <%= f.submit 'Confirm' %>

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @listings = Listing.is_available
-    @bookings = @user.bookings
+    @orders = @user.orders
   end
 
   def edit

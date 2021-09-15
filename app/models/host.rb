@@ -5,5 +5,5 @@ class Host < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :listings, dependent: :destroy
-  has_many :bookings, through: :listings
+  has_many :orders, through: :listings
 end

@@ -1,4 +1,4 @@
-class Booking < ApplicationRecord
+class Order < ApplicationRecord
   belongs_to :user
   belongs_to :listing
 
@@ -17,7 +17,7 @@ class Booking < ApplicationRecord
   end
 
   def calculate_total
-    self.total = listing.price_per_item * listing.quantity
+    self.total = listing.price_per_item * quantity
     self.save
   end
 end

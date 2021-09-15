@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :listings, only: [:show] do
-  resources :bookings do
+  resources :orders do
     get 'success'
     get 'cancel'
     get 'payment_details'

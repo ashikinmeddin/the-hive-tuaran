@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get '/order', to: 'pages#order'
   get '/contact', to: 'pages#contact'
 
-  resources :users
+  resources :users do
+    member do
+      get :confirmation_token
+    end
+  end
   resources :listings, only: [:show] do
   resources :orders do
     get 'success'
@@ -16,6 +20,8 @@ Rails.application.routes.draw do
     get 'payment_details'
   end
 end
+
+  resources :stripes, only: [:create]
 
   namespace :platform do
     get '/home', to: 'pages#host_homepage'

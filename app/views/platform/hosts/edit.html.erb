@@ -1,10 +1,7 @@
 <section class='host-edit-page'>
   <h1>Host Setting Page</h1>
-  <%= form_with(model: @user) do |f| %>
-    <%= render 'shared/form_error', object: @user %>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-    <%= f.submit 'save' %>
+  <%= form_with(model: @host) do |f| %>
+    <%= render 'shared/form_error', object: @host %>
     <%= link_to 'Delete your account', platform_hosts_path, :method => :delete %>
   <% end %>
 </section>

@@ -25,6 +25,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    session[:user_id] = nil
+    redirect_to new_user_path
+  end
+
   private
     def user_params
       params.require(:user).permit(:avatar)

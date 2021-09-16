@@ -6,5 +6,6 @@
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
     <%= f.submit 'save' %>
+    <%= link_to 'Delete your account', users_path, :method => :delete %>
   <% end %>
 </section>

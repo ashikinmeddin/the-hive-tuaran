@@ -5,9 +5,24 @@ class OrdersController < UsersController
 
     if @order.save
       redirect_to user_path(current_user), notice: 'Order was successfully created.'
+      Orders.new_order_notification(@order).deliver_now
     else
       redirect_to listing_path(@listing), alert: 'There was an error. Please try again.'
     end
+  end
+
+  def show
+  @order = Order.find(params[:id])
+  end
+
+  def payment_details
+  @order = Order.find(params[:order_id])
+  end
+
+  def success
+  end
+
+  def cancel
   end
 
   private

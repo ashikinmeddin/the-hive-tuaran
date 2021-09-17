@@ -1,20 +1,37 @@
-<section class='user-profile'>
-  <div class='user-avatar'>
-    <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar, style: 'width: 200px;' %>
-    <% end %>
+<div class="container-fluid">
+  <div class="content">
+    <div class="row">
+      <div class="col-2 sidebar">
+      </div>
+      <div class="col-8 main-content">
+        <div class="header">
+          <h1> Hi <%= @user.email %></h1>
+          <br>
+        </div>
+        <section class='user-profile'>
+          <div class='user-avatar'>
+            <% if @user.avatar.attached? %>
+              <%= image_tag @user.avatar, style: 'width: 200px;' %>
+            <% end %>
+          </div>
+          <div class='user-orders'>
+          <h1>Your orders</h1>
+          <ol class="list-group list-group-numbered">
+          <% @orders.each do |order| %>
+            <br>
+              <li class="list-group-item"><p> Reference Number : <%= link_to "#{order.ref_no}", listing_order_path(order.listing, order) %></p>
+              <p>Item: <%= order.listing.title %></p>
+              <p>Total: <%= order.total %></p></li>
+          <% end %>
+          </ol>
+          </div>
+        </section>
+      </div>
+      <div class="col-2 sidebar">
+      </div>
+    </div>
   </div>
-  <div class='user-details'>
-    <h1><%= @user.email %></h1>
+  <div class="footer bg-light">
+    footer
   </div>
-
-  <div class='user-orders'>
-  <h1>Your orders</h1>
-  <% @orders.each do |order| %>
-    <br>
-    <%= link_to "#{order.ref_no}", listing_order_path(order.listing, order) %>
-    <p>status: <%= order.status %></p>
-    <p>Total: <%= order.total %></p>
-  <% end %>
-  </div>
-</section>
+</div>

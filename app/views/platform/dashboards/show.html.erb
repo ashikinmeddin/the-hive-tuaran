@@ -1,35 +1,47 @@
-<h1> This is the Host Dashboard</h1>
-
-<section class='new-listing-form'>
-  <%= form_with(model: [:platform, @listing]) do |f| %>
-    <%= f.label :photos %>
-    <%= f.file_field :photos, multiple: true %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :price_per_item %>
-    <%= f.text_field :price_per_item %>
-    <%= f.label :available %>
-    <%= f.check_box :available %>
-    <%= f.submit 'create' %>
-  <% end %>
-</section>
-
-<section class='host-listings'>
-  <h2>All your listings</h2>
-  <% @listings.each do |listing| %>
-    <% if listing.photos.attached? %>
-      <% listing.photos.each do |photo| %>
-        <%= image_tag photo, style: 'width: 200px;'%>
-        <%= link_to 'Remove', delete_photo_attachment_platform_listing_path(photo), method: :delete, data: { confirm: 'Are you sure?' }%>
-      <% end %>
-    <% end %>
-    <p>Title: <%= listing.title %></p>
-    <p>Description: <%= listing.description %></p>
-    <p>Price per Item: <%= listing.price_per_item %></p>
-    <%= link_to edit_platform_listing_path(listing) do %>
-      <button>Edit</button>
-    <% end %>
-  <% end %>
-</section>
+<div class="container-fluid">
+  <div class="content">
+    <div class="row">
+      <div class="col-2 sidebar">
+      </div>
+      <div class="col-8 main-content">
+        <div class="header">
+          <h1> Host Dashboard</h1>
+        <div class="list-container">
+          <div class="row">
+            <div class='new-listing-form'>
+              <%= form_with(model: [:platform, @listing]) do |f| %>
+                <%= f.label :photos %>
+                <%= f.file_field :photos, multiple: true %>
+                <%= f.label :title %>
+                <%= f.text_field :title %>
+                <%= f.label :description %>
+                <%= f.text_field :description %>
+                <%= f.label :price_per_item %>
+                <%= f.text_field :price_per_item %>
+                <%= f.label :available %>
+                <%= f.check_box :available %>
+                <%= f.submit 'create' %>
+              <% end %>
+            </div>
+            <% @listings.each do |listing| %>
+              <div class="col-6">
+                <% if listing.photos.attached? %>
+                  <% listing.photos.each do |photo| %>
+                    <%= image_tag photo, style: 'width: 200px;'%>
+                    <%= link_to 'Remove', delete_photo_attachment_platform_listing_path(photo), method: :delete, data: { confirm: 'Are you sure?' }%>
+                  <% end %>
+                <% end %>
+                <p>Title: <%= listing.title %></p>
+                <p>Description: <%= listing.description %></p>
+                <p>Price per Item: <%= listing.price_per_item %></p>
+                <%= link_to edit_platform_listing_path(listing) do %>
+                  <button>Edit</button>
+                <% end %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-2 sidebar">
+      </div>
+    </div>
+  </div>

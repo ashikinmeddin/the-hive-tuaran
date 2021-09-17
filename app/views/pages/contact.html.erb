@@ -1,46 +1,63 @@
-<h1> This is the contact page</h1>
-<div class="card z-depth-5">
-  <div class="card-content">
-    <p>Wanna talk? Find us on the map and contact us</p>
-</div>
-</div>
-<style type="text/css">
-  /* Set the size of the div element that contains the map */
-  #map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 100%;
-    /* The width is the width of the web page */
-  }
-</style>
-<script>
-  // Initialize and add the map
-  function initMap() {
-    // The location of The Hive Tuaran
-    const thehivetuaran = { lat: 6.1785792, lng: 116.232169 };
-    // The map, centered at The Hive Tuaran
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 18,
-      center: thehivetuaran,
-    });
-    // The marker, positioned at The Hive Tuaran
-    const marker = new google.maps.Marker({
-      position: thehivetuaran,
-      map: map,
-    });
-  }
-</script>
-</head>
-<body>
-<h3>The Hive Tuaran</h3>
-<!--The div element for the map -->
-<div id="map"></div>
-<br>
-<%= link_to 'Get Direction', "https://maps.google.com/?q=thehivetuaran", target: '_blank' %>
-<br>
+<div class="container-fluid">
+  <div class="content">
+    <div class="row">
+      <div class="col-2 sidebar">
+      </div>
+      <div class="col-8 main-content">
+        <div class="header">
+          <h1> This is the contact page</h1>
+        </div>
+        <div class="card z-depth-5">
+          <div class="card-content">
+            <p>Wanna talk? Find us on the map and contact us</p>
+        </div>
+        </div>
+        <style type="text/css">
+          /* Set the size of the div element that contains the map */
+          #map {
+            height: 400px;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+          }
+        </style>
+        <script>
+          // Initialize and add the map
+          function initMap() {
+            // The location of The Hive Tuaran
+            const thehivetuaran = { lat: 6.1785792, lng: 116.232169 };
+            // The map, centered at The Hive Tuaran
+            const map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 18,
+              center: thehivetuaran,
+            });
+            // The marker, positioned at The Hive Tuaran
+            const marker = new google.maps.Marker({
+              position: thehivetuaran,
+              map: map,
+            });
+          }
+        </script>
+        </head>
+        <body>
+        <h3>The Hive Tuaran</h3>
+        <!--The div element for the map -->
+        <div id="map"></div>
+        <br>
+        <%= link_to 'Get Direction', "https://maps.google.com/?q=thehivetuaran", target: '_blank' %>
+        <br>
 
-<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-<script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbgZT8MMQK9zuEqEEZcC0BNKcLS4jZrvQ&callback=initMap&libraries=&v=weekly"
-  async
-></script>
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbgZT8MMQK9zuEqEEZcC0BNKcLS4jZrvQ&callback=initMap&libraries=&v=weekly"
+          async
+        ></script>
+      </div>
+      <div class="col-2 sidebar">
+      </div>
+    </div>
+  </div>
+  <div class="footer bg-light">
+    footer
+  </div>
+</div>

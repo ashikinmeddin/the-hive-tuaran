@@ -1,49 +1,33 @@
-<div class='col-2'>
-  <h5 class="link-container">
-      <%= link_to "Home", root_path, class: "link #{@page == 'home' ? 'active' : ''}" %>
-  </h5>
-  <h5 class="link-container">
-      <%= link_to "Menu", menu_path, class: "link #{@page == 'menu' ? 'active' : ''}" %>
-  </h5>
-  <h5 class="link-container">
-      <%= link_to "Order", order_path, class: "link #{@page == 'order' ? 'active' : ''}" %>
-  </h5>
-  <h5 class="link-container">
-      <%= link_to "Contact", contact_path, class: "link #{@page == 'contact' ? 'active' : ''}" %>
-  </h5>
+<section class='header'>
+  <nav class="navbar navbar-expand-lg navbar-light bg-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">The Hive Tuaran</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#customToggle" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="customToggle">
+        <div class="navbar-nav">
+          <%= link_to "Home", root_path, class: "nav-link active" %>
+          <%= link_to "Menu", menu_path, class: "nav-link active" %>
+          <%= link_to "Order", order_path, class: "nav-link active" %>
+          <%= link_to "Contact", contact_path, class: "nav-link active" %>
 
-  <% if user_signed_in? %>
-    <h5 class="link-container">
-      <%= link_to 'Profile', user_path(current_user), class: "link #{@page == 'user' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Setting', edit_user_path(current_user), class: "link #{@page == 'usersetting' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </h5>
-  <% elsif host_signed_in? %>
-    <h5 class="link-container">
-      <%= link_to 'Dashboard', platform_dashboard_path(current_host), class: "link #{@page == 'dashboard' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Profile', platform_home_path, class: "link #{@page == 'host' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Setting', edit_platform_host_path(current_host), class: "link #{@page == 'hostsetting' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Logout', destroy_host_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </h5>
-  <% else %>
-    <h5 class="link-container">
-      <%= link_to 'Sign Up', new_user_registration_path, class: "link #{@page == 'signup' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Login', new_user_session_path, class: "link #{@page == 'Login' ? 'active' : ''}" %>
-    </h5>
-    <h5 class="link-container">
-      <%= link_to 'Host', platform_home_path, class: "link #{@page == 'hostplatform' ? 'active' : ''}" %>
-    </h5>
-  <% end %>
-</div>
+          <% if host_signed_in? %>
+            <%= link_to 'Dashboard', platform_dashboard_path(current_host), class:"nav-link" %>
+            <%= link_to 'Profile', platform_home_path, class:"nav-link" %>
+            <%= link_to 'Setting', edit_platform_host_path(current_host), class:"nav-link" %>
+            <%= link_to 'Logout', destroy_host_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% elsif user_signed_in? %>
+            <%= link_to 'Profile', user_path(current_user), class:"nav-link" %>
+            <%= link_to 'Setting', edit_user_path(current_user), class:"nav-link" %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% else %>
+            <%= link_to 'Sign Up', new_user_registration_path, class:"nav-link" %>
+            <%= link_to 'Log In', new_user_session_path, class:"nav-link" %>
+            <%= link_to 'Host', platform_home_path, class:"nav-link" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>

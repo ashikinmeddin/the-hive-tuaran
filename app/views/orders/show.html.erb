@@ -1,0 +1,14 @@
+<section class='single-order-page'>
+  <div class='listing-details'>
+    <h1>Listing Details</h1>
+    <p>Host: <%= @order.host.email %></p>
+    <p>Item: <%= @order.listing.title %></p>
+  </div>
+
+  <div class='order-details'>
+    <h1>Order details</h1>
+    <p>Reference No. <%= @order.ref_no %></p>
+    <p>Quantity: <%= @order.quantity %></p>
+    <p>total: <%= @order.total %></p>
+  </div>
+</section>

@@ -120,17 +120,19 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { host: 'the-hive-tuaran.herokuapp.com', protocol: 'http' }
 
-  config.action_mailer.smtp_settings = {
-    user_name: 'thehive.tuaran@gmail.com',
-    password:  Rails.application.credentials.GOOGLE[:APP_PASSWORD].to_s,
-    address: 'smtp.gmail.com',
-    domain: 'the-hive-tuaran.herokuapp.com',
-    port: 587,
-    enabled_starttls_auto: true,
-    authentication: 'plain'
-    }
+  #config.action_mailer.delivery_method = :smtp
+
+  #config.action_mailer.default_url_options = { host: 'the-hive-tuaran.herokuapp.com', protocol: 'http' }
+
+  #config.action_mailer.smtp_settings = {
+  #  user_name: 'thehive.tuaran@gmail.com',
+  #  password:  Rails.application.credentials.GOOGLE[:APP_PASSWORD].to_s,
+  #  address: 'smtp.gmail.com',
+  #  domain: 'the-hive-tuaran.herokuapp.com',
+  #  port: 587,
+  #  enabled_starttls_auto: true,
+  #  authentication: 'plain'
+  #  }
 end

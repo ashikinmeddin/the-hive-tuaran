@@ -1,21 +1,38 @@
-<section class='single-listing-show-page'>
-  <div class='listing-details'>
-    <% if @listing.photos.attached? %>
-      <% @listing.photos.each do |photo| %>
-        <%= image_tag photo, style: 'width: 200px;'%>
-      <% end %>
-    <% end %>
-    <p>Title: <%= @listing.title %></p>
-    <p>Description: <%= @listing.description %></p>
-    <p>Price Per Day: <%= @listing.price_per_item %></p>
-  </div>
+<div class="container-fluid">
+  <div class="content">
+    <div class="row">
+      <div class="col-2 sidebar">
+      </div>
+      <div class="col-8 main-content">
+        <div class="header">
+          <h1>Order Section</h1>
+        </div>
+        <div class="single-listing-show-page-container">
+          <div class="row">
+            <div class='listing-details'>
+              <% if @listing.photos.attached? %>
+                <% @listing.photos.each do |photo| %>
+                  <%= image_tag photo, style: 'width: 200px;'%>
+                <% end %>
+              <% end %>
+              <p>Title: <%= @listing.title %></p>
+              <p>Description: <%= @listing.description %></p>
+              <p>Price Per Item: <%= @listing.price_per_item %></p>
+            </div>
 
-  <div class='order-form'>
-    <h2>Order section</h2>
-    <%= form_with(model: [@listing, @order]) do |f| %>
-      <%= f.label :no_of_item %>
-      <%= f.number :quantity %>
-      <%= f.submit 'Confirm' %>
-    <% end %>
+            <div class='order-form'>
+              <h2>Order section</h2>
+              <%= form_with(model: [@listing, @order]) do |f| %>
+                <%= f.label :no_of_item %>
+                <%= f.number :quantity %>
+                <%= f.submit 'Confirm' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+  <div class="col-2 sidebar">
+  </div>
+</div>

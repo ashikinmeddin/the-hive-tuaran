@@ -11,6 +11,9 @@
         <div class="list-container">
           <div class="row">
             <% @listings.each do |listing| %>
+            <div class="card border-black mb-3" style="max-width: 20rem;">
+              <div class="card-header"><%= listing.title %></div>
+              <div class="card-body text-primary">
               <div class="col-6">
                 <% if listing.photos.attached? %>
                   <% listing.photos.each do |photo| %>
@@ -24,14 +27,13 @@
                     <button>Order</button>
                   <% end %>
               </div>
+            </div>
+          </div>
             <% end %>
         </div>
       </div>
       <div class="col-2 sidebar">
       </div>
     </div>
-  </div>
-  <div class="footer bg-light">
-    footer
   </div>
 </div>

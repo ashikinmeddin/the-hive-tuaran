@@ -1,14 +1,25 @@
-<section class='single-order-page'>
-  <div class='listing-details'>
-    <h1>Listing Details</h1>
-    <p>Host: <%= @order.host.email %></p>
-    <p>Item: <%= @order.listing.title %></p>
+<div class="container-fluid">
+  <div class="content">
+    <div class="row">
+      <div class="col-2 sidebar">
+      </div>
+      <div class="col-8 main-content">
+        <div class="header">
+          <h1>Order Details</h1>
+          <br>
+          <div class='listing-details'>
+            <p>Host: <%= @order.host.email %></p>
+            <p>Item: <%= @order.listing.title %></p>
+          </div>
+        </div>
+          <div class='order-details'>
+            <p>Reference No. <%= @order.ref_no %></p>
+            <p>Quantity: <%= @order.quantity %></p>
+            <p>total: <%= @order.total %></p>
+          </div>
+      </div>
+      </div>
+    <div class="col-2 sidebar">
+    </div>
   </div>
-
-  <div class='order-details'>
-    <h1>Order details</h1>
-    <p>Reference No. <%= @order.ref_no %></p>
-    <p>Quantity: <%= @order.quantity %></p>
-    <p>total: <%= @order.total %></p>
-  </div>
-</section>
+</div>

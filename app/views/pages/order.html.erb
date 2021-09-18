@@ -11,16 +11,15 @@
         <div class="list-container">
           <div class="row">
             <% @listings.each do |listing| %>
-            <div class="card border-black mb-3" style="max-width: 20rem;">
+            <div class="card border-black mb-12" style="max-width: 18rem;">
               <div class="card-header"><%= listing.title %></div>
               <div class="card-body text-primary">
-              <div class="col-6">
+              <div class="col-12">
                 <% if listing.photos.attached? %>
                   <% listing.photos.each do |photo| %>
                     <%= image_tag photo, style: 'width: 200px;'%>
                   <% end %>
                   <% end %>
-                  <p>Title: <%= listing.title %></p>
                   <p>Description: <%= listing.description %></p>
                   <p>Price Per Item: <%= listing.price_per_item %></p>
                   <%= link_to listing_path(listing) do %>
@@ -36,4 +35,32 @@
       </div>
     </div>
   </div>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4 footer">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6 mb-4">
+    <form class="form-inline">
+          <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+            aria-label="Search">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </form>
+    </div>
+    <div class="col-md-6 mb-4">
+      <form class="input-group">
+          <input type="text" class="form-control form-control-sm" placeholder="Your email"
+            aria-label="Your email" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-sm btn-outline-white my-0" type="button">Sign up</button>
+          </div>
+        </form>
+
+      </div>
+  </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+  </div>
+</footer>
 </div>
